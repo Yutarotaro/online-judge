@@ -1,0 +1,13 @@
+version: "3.5"
+
+services:
+  app:
+    build:
+      context: ..
+      target: builder
+    ports:
+      - 80:80
+    volumes:
+      - ../:/app
+    command: sh -c "cd /app && go run main.go"
+  
