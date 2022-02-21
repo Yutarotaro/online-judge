@@ -47,5 +47,5 @@ func main() {
 		})
 	})
 
-	r.Run(port)
+	r.Run(":" + port)
 }
