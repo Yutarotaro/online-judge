@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	_ "fmt"
 	_ "net/http"
+	"os"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -19,6 +19,11 @@ func main() {
 	// DBMigrate(DBconnect())
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
 	pages := make(map[int]Page)
 	pages[0] = Page{"a+bの答えを出力してください", "a,b < 10"}
@@ -42,5 +47,5 @@ func main() {
 		})
 	})
 
-	r.Run(":8080")
+	r.Run(port)
 }
