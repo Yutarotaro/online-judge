@@ -9,5 +9,5 @@ services:
       - 8080:8080
     volumes:
       - ../:/app
-    command: sh -c "cd /app && go run main.go"
+    # command: sh -c "cd /app && go run main.go"
   
